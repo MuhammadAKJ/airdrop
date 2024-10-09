@@ -1,0 +1,35 @@
+.coin-btn {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d4af37 0%, #c39822 70%, #8c6d1f 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 4px solid #b8860b;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+.coin-btn:hover {
+    transform: scale(1.1);
+}
+
+.coin-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.coin-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}

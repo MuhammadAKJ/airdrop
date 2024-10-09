@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Payments{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Pending Payments</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Points to Withdraw</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in pending_requests %}
+                <tr>
+                    <td>{{ request.user.name }}</td>
+                    <td>{{ request.points_to_withdraw }}</td>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="request_id" value="{{ request.id }}">
+                            <button type="submit" class="btn btn-success">Mark as Paid</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
