@@ -17,12 +17,35 @@
             <a class="navbar-brand" href="#">Referral Platform</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'dashboard' %}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'daily_task' %}">Daily Task</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'withdraw' %}">Withdraw</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'monthly_tasks' %}">Monthly Task</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+
+                    {% endif %}
+                    
                 </ul>
             </div>
         </div>
