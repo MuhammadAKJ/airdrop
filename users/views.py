@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.utils import timezone
 
 from .forms import UserRegistrationForm
@@ -56,6 +57,8 @@ class CustomLoginView(LoginView):
 def dashboard(request):
     return render(request, 'users/dashboard.html')
 
+def index(request):
+    return render(request, 'users/landing.html')
 
 def daily_task(request):
     user = request.user.userprofile  # Assuming the user is authenticated
@@ -141,3 +144,7 @@ def complete_task(request, task_id):
         user.save()
 
     return redirect('monthly_tasks')
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')

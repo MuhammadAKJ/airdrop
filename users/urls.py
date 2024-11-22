@@ -11,7 +11,7 @@ from django.urls import path
 from .views import register, leaderboard, daily_task
 from .views import request_withdrawal, manage_payments
 from .views import monthly_tasks, complete_task, dashboard
-from .views import CustomLoginView
+from .views import CustomLoginView, logout_user, index
 
 
 urlpatterns = [
@@ -23,6 +23,7 @@ urlpatterns = [
     path('monthly-tasks/', monthly_tasks, name='monthly_tasks'),
     path('complete-task/<int:task_id>/', complete_task, name='complete_task'),
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', logout_user, name='logout'),
     path('dashboard/', dashboard, name='dashboard'),
+    path('', index, name='index'),
 ]
